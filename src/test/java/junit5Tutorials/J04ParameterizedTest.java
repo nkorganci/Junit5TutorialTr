@@ -2,6 +2,7 @@ package junit5Tutorials;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -34,6 +35,13 @@ public class J04ParameterizedTest {
     @CsvSource(value = {"AD,ad","CD,cd"})
     void toUpperCaseT(String expected,String str){
         assertEquals(expected,str.toUpperCase());
+    }
+
+    //@CvsFileSource application
+    @ParameterizedTest
+    @CsvFileSource(resources = "/data.csv",numLinesToSkip = 1)
+    void cvsFile(String given,String expectedRes){
+        assertEquals(expectedRes,given.toUpperCase());
     }
 
 
