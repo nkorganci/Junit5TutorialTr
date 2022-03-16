@@ -27,6 +27,7 @@ class C02StringDegistiriciTest {
     @ParameterizedTest
     @CsvSource(value = {"BC, ABC","ACD,AAACD", "DA,DAA","'',AA"})
     void deleteA(String expected, String actual) {
-
+        assertEquals(expected,stringDegistirici.deleteA(actual));
+        System.out.println("Method is working");
     }
 }
